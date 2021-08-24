@@ -1,6 +1,6 @@
 import { SORT_ORDER } from "../../constants/posts";
 
-const postsInitialState = {
+export const postsInitialState = {
   loading: false,
   data: [],
   currentPage: 1,
@@ -19,7 +19,7 @@ export function posts(state = postsInitialState, { type, payload }) {
       return {
         ...state,
         loading: false,
-        data: state.data.concat(payload)
+        data: state.data.concat(payload.posts)
       };
     case "SORT_POSTS":
       return {
@@ -34,7 +34,7 @@ export function posts(state = postsInitialState, { type, payload }) {
   }
 }
 
-const commentsInitialState = {
+export const commentsInitialState = {
   loading: false,
   data: new Map(),
 };

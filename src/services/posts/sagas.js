@@ -8,7 +8,7 @@ function* fetchPosts(action) {
     `https://jsonplaceholder.typicode.com/posts?_page=${action.payload.page}&_sort=${order}&_limit=10`
   ).then(response => response.json());
 
-  yield put({ type: "FETCH_POSTS_SUCCESS", payload: json });
+  yield put({ type: "FETCH_POSTS_SUCCESS", payload: { posts: json } });
 }
 
 export default function* actionWatcher() {
