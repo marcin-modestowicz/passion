@@ -1,11 +1,11 @@
 import React from "react";
 import "./Preview.css";
 
-const Comment = ({ body, author }) => (
-  <div className="comment">
-    <p className="comment__author">{author}</p>
+const Comment = ({ body, author, email }) => (
+  <article className="comment">
+    <h4 className="comment__author">{author} ({email})</h4>
     <p className="comment__body">{body.repeat(3)}</p>
-  </div>
+  </article>
 );
 
 export default Comment;

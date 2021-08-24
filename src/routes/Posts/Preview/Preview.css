@@ -23,6 +23,15 @@
   text-align: justify;
 }
 
+.preview__button {
+  display: inline-block;
+}
+
+.preview__comments {
+  display: flex;
+  justify-content: space-between;
+}
+
 .comment {
   display: flex;
   flex-direction: column;
@@ -33,7 +42,4 @@
   color: #666;
   font-weight: bold;
   margin-bottom: 10px;
-}
-
-.comment__body {
 }
