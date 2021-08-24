@@ -19,6 +19,7 @@ class List extends React.Component {
 
   renderItems = () => {
     const { data, component, keyName } = this.props;
+
     return data.map((item, id) =>
       React.createElement(component, { ...item, key: item[keyName] || id })
     );
@@ -27,7 +28,7 @@ class List extends React.Component {
   handleScroll = event => {
     const {scrollHeight, scrollTop, clientHeight} = event.target;
 
-    if (this.onScrollEndListHeight !== scrollHeight && scrollTop + clientHeight + this.scrollOffset > scrollHeight) {
+    if (!this.props.loading && this.onScrollEndListHeight !== scrollHeight && scrollTop + clientHeight + this.scrollOffset > scrollHeight) {
       this.onScrollEndListHeight = scrollHeight;
       this.props.onScrollEnd();
     }
@@ -36,12 +37,11 @@ class List extends React.Component {
   render() {
     const { loading, data } = this.props;
 
-    if (loading && !data.length) {
-      return 'Loading';
-    }
-
     return (
-      <div className="list" ref={this.listRef}>{this.renderItems()}</div>
+      <div className="list" ref={this.listRef}>
+        {loading && !data.length && 'Loading...'}
+        {data.length && this.renderItems()}
+      </div>
     );
   }
 }

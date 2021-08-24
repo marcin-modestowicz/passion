@@ -6,7 +6,7 @@ import Preview from "./Preview";
 
 class Posts extends React.Component {
   componentDidMount() {
-    this.props.fetchPosts(1);
+    this.props.fetchPosts();
   }
 
   handleLoadMore = () => {

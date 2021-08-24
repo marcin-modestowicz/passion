@@ -1,7 +1,10 @@
+import { SORT_ORDER } from "../../constants/posts";
+
 const postsInitialState = {
   loading: false,
   data: [],
   currentPage: 1,
+  order: SORT_ORDER.BY_ID,
 };
 
 export function posts(state = postsInitialState, { type, payload }) {
@@ -10,13 +13,21 @@ export function posts(state = postsInitialState, { type, payload }) {
       return {
         ...state,
         loading: true,
-        currentPage: payload,
+        currentPage: payload.page,
       };
     case "FETCH_POSTS_SUCCESS":
       return {
         ...state,
         loading: false,
         data: state.data.concat(payload)
+      };
+    case "SORT_POSTS":
+      return {
+        ...state,
+        loading: true,
+        currentPage: 1,
+        order: payload.order,
+        data: [],
       };
     default:
       return state;
