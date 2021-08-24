@@ -7,7 +7,7 @@ const Post = ({ title, body, author, avatar, id }) => (
       <Link to={`/posts/${id}`}>{title}</Link>
     </h3>
     <div className="post__author-container">
-      <img src={avatar} className="post__avatar" alt="author profile picture" />
+      <img src={avatar} className="post__avatar" alt="author profile" />
       <span className="post__author">{author}</span>
     </div>
     <p className="post__body">{body.slice(0, 70)}...</p>
