@@ -1,6 +1,7 @@
 const initialState = {
   loading: false,
-  data: []
+  data: [],
+  currentPage: 1,
 };
 
 export default function posts(state = initialState, { type, payload }) {
@@ -8,13 +9,14 @@ export default function posts(state = initialState, { type, payload }) {
     case "FETCH_POSTS":
       return {
         ...state,
-        loading: true
+        loading: true,
+        currentPage: payload,
       };
     case "FETCH_POSTS_SUCCESS":
       return {
         ...state,
         loading: false,
-        data: payload
+        data: state.data.concat(payload)
       };
     default:
       return state;

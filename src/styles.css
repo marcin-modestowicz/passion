@@ -12,7 +12,9 @@ html {
 }
 
 .container {
+  flex: 1;
   padding-top: 50px;
+  height: 100vh;
 }
 
 .nav {
@@ -48,8 +50,9 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px 0;
   width: 100%;
+  height: 100%;
+  overflow: auto;
 }
 
 .post {

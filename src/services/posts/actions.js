@@ -1,3 +1,4 @@
-export const fetchPosts = () => ({
-  type: "FETCH_POSTS"
+export const fetchPosts = (page) => ({
+  type: "FETCH_POSTS",
+  payload: page
 });

@@ -6,7 +6,16 @@ import Preview from "./Preview";
 
 class Posts extends React.Component {
   componentDidMount() {
-    this.props.fetchPosts();
+    this.props.fetchPosts(1);
+  }
+
+  handleLoadMore = () => {
+    const {
+      fetchPosts,
+      currentPage,
+    } = this.props;
+
+    fetchPosts(currentPage + 1);
   }
 
   render() {
@@ -17,7 +26,7 @@ class Posts extends React.Component {
         <Route
           exact
           path="/posts"
-          render={() => <PostList {...{ loading, posts }} />}
+          render={() => <PostList {...{ loading, posts, onLoadMore: this.handleLoadMore }} />}
         />
         <Route path="/posts/:id" component={Preview} />
       </Switch>
