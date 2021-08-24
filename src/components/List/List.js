@@ -40,7 +40,7 @@ class List extends React.Component {
     return (
       <div className="list" ref={this.listRef}>
         {loading && !data.length && 'Loading...'}
-        {data.length && this.renderItems()}
+        {!!data.length && this.renderItems()}
       </div>
     );
   }
