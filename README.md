@@ -1,5 +1,11 @@
 # Passion.io Coding Challenge
 
+## Solution
+
+I fixed issue with post id param and handle the case in which post data is not yet ready. Added infinite scrolling to slightly adjusted List component (to have the scroll inside the list, so that it can be easily handled). There are no heavy computations there, so no further improvements for scroll event handler (like `requestAnimationFrame`) should be needed. For the comments, I updated state, added some reducers and saga. I didn't have previous experiene with sagas, but I must say they are quite elegant. Sorting was a bit tricky. I did it first on the frontend side, but updating the list with infinite scroll made the scroll stutter a bit. I'm sure it could be fixed somehow, but as I don't have much time, I decided to change the approach and reload the whole list on order change, to get the sorted data from the API. In the end, I added some tests for reducers and snapshots for List component.
+
+At first I wanted to rewrite the whole app in TypeScript, but wasn't sure if that's what you guys expect. So further improvements should include TS, some dev utils like Prettier, Eslint etc., splitting the redux stuff into domain-based files, some more tests, both unit and functional (e.g. with Cypress). If this app should scale with some more data (posts let's say), I would surely replace custom list with some virtualized one. Some UX improvements like saving the state (e.g. sort order) locally would also help.
+
 ## Background Information
 
 Passion.io works with various successful people from around the globe.
